@@ -1,30 +1,21 @@
 import movies from './mongoConnect.js'
 
-export const queryMovies = async () => {
-  // movies.find().toArray((err, result) => {
-  //   console.log(result)
-  // })
-
-  const allMovies = await movies.find().toArray()
-
-  return allMovies
+export const queryMovies = async (req, res) => {
+  const allMovies = await movies.find().toArray() // mongo needs it
+  res.send(allMovies)
 }
 
-export const addMovie = async (body) => {
-  const movieAdded = await movies.insertOne(body)
-  return movieAdded
+export const addMovie = async (req, res) => {
+  const movieAdded = await movies.insertOne(req.body)
+  res.send(movieAdded)
 }
 
-export async function updateMovie(query, body) {
-  const movieUpdated = await movies.findOneAndUpdate(query, { $set: body })
-  return movieUpdated
+export async function updateMovie(req, res) {
+  const movieUpdated = await movies.findOneAndUpdate(req.query, { $set: req.body })
+  res.send(movieUpdated)
 }
 
-export async function deleteMovie(movieToDelete) {
-  // movies.findOneAndDelete({ name: 'Frozen' }, (err, result) => {
-  //   console.log(result)
-  // })
-
-  const movieDeleted = await movies.findOneAndDelete(movieToDelete)
-  return movieDeleted
+export async function deleteMovie(req, res) {
+  const movieDeleted = await movies.findOneAndDelete(req.query)
+  res.send(movieDeleted)
 }
