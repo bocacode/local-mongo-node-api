@@ -9,3 +9,4 @@ This project showcases what we've learned to make an api that will access a "mov
 
 ## How to use it: 
 you can add new movies by sending a valid JSON body to```http://localhost:4001/add-movie``` and get movies by going to ```http://localhost:4001/get-movies```
+
