@@ -1,1 +1,1 @@
-export const uri = 'mongodb+srv://jonathans:Jsanch08!!@cluster0.whytnmo.mongodb.net/'
+export const uri = 'mongodb+srv://<username>;<password>@AAAA.bbbb.mongodb.net/'
