@@ -1,11 +1,8 @@
 import express from 'express'
 import cors from 'cors'
-import process from 'process'
 
 import dotenv from 'dotenv'
 dotenv.config()
-
-console.log('testing here ', process)
 
 import { addMovie, queryMovies, deleteMovie, updateMovie } from './movies.js'
 import { addEmployee } from './employees.js'
